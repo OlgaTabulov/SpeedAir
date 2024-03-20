@@ -23,7 +23,7 @@ namespace SpeedAir
         {
             _orderProvider = new SampleOrdersProvider(Path.GetFullPath(Config.OrdersSamplePath));
             _scheduleProvider = new ScheduleProvider();
-            var scheduler = new Scheduler(_scheduleProvider, _orderProvider);
+            var scheduler = new OrderScheduler(_scheduleProvider, _orderProvider);
             scheduler.LoadOrders();
             scheduler.CreateItenary();
             scheduler.PopulateItenary();
