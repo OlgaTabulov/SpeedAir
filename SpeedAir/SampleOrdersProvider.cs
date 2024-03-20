@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 namespace SpeedAir
 {
-    public class SampleOrders : IOrderProvider
+    public class SampleOrdersProvider : IOrderProvider
     {
         private readonly string _sampleOrdersFilePath;
 
-        public SampleOrders(string sampleOrdersFilePath)
+        public SampleOrdersProvider(string sampleOrdersFilePath)
         {
             _sampleOrdersFilePath = sampleOrdersFilePath;
         }
@@ -39,5 +39,9 @@ namespace SpeedAir
             }
             return orders;
         }
+    }
+    public class OrdersInputFileItem
+    {
+        public string destination;
     }
 }

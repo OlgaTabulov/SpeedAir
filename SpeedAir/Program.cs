@@ -17,12 +17,11 @@ namespace SpeedAir
             Console.WriteLine("Welcome to Speed Air Story # 2! ");
 
             RunOrdersSchedule();
-            
         }
 
         private static void RunOrdersSchedule()
         {
-            _orderProvider = new SampleOrders(Path.GetFullPath(@"coding-assigment-orders.json"));
+            _orderProvider = new SampleOrdersProvider(Path.GetFullPath(Config.OrdersSamplePath));
             _scheduleProvider = new ScheduleProvider();
             var scheduler = new Scheduler(_scheduleProvider, _orderProvider);
             scheduler.LoadOrders();
@@ -33,15 +32,10 @@ namespace SpeedAir
 
         private static void RunEmptyScedule()
         {
-            _orderProvider = new SampleOrders(Path.GetFullPath(@"coding-assigment-orders.json"));
             _scheduleProvider = new ScheduleProvider();
             var scheduler = new Scheduler(_scheduleProvider);
             scheduler.CreateItenary();
             scheduler.PrintItenary();
         }
-
-        public static readonly int DEFAULT_MAX_LOAD = 20;
-
-        
     }
 }

@@ -35,7 +35,7 @@ namespace SpeedAir
         {
             foreach (var itinerary in _itineraries)
             {
-                Console.WriteLine("Flight: " + itinerary.Day + ", departure: " + itinerary.Flight.Route.From + ", arrival: " + itinerary.Flight.Route.To + ", day:  " + itinerary.Day);
+                Console.WriteLine("Flight: " + itinerary.Day + ", departure: " + itinerary.Flight.From + ", arrival: " + itinerary.Flight.To + ", day:  " + itinerary.Day);
             }
 
             Console.WriteLine("Total number of flights " + _itineraries.Count);
@@ -46,7 +46,7 @@ namespace SpeedAir
             foreach (var delivery in _orderDeliverySchedule)
             {
                 var itinerary = delivery.Value;
-                Console.WriteLine("order: "+delivery.Key+ ", flightNumber: " + itinerary.Flight.FlightId + ", departure: " + itinerary.Flight.Route.From + ", arrival:  " + itinerary.Flight.Route.To + ", day: " + itinerary.Day);
+                Console.WriteLine("order: "+delivery.Key+ ", flightNumber: " + itinerary.Flight.FlightId + ", departure: " + itinerary.Flight.From + ", arrival:  " + itinerary.Flight.To + ", day: " + itinerary.Day);
             } 
 
             Console.WriteLine("Total number of deliveries " + _orderDeliverySchedule.Count);
@@ -57,7 +57,7 @@ namespace SpeedAir
             {
                 foreach(var itinerary in _itineraries)
                 {
-                    if (itinerary.Load < itinerary.Flight.AvailableLoad && itinerary.Flight.Route.To == order.To)
+                    if (itinerary.Load < itinerary.Flight.AvailableLoad && itinerary.Flight.To == order.To)
                     {
                         itinerary.Load++;
                         itinerary.Orders.Add(order);
